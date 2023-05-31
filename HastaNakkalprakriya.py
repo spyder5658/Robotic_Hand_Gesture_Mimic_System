@@ -159,6 +159,10 @@ while True:
 
                 if pinky_finger < 80:
                     cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[13].write(0)
+                if pinky_finger > 80:
+                    cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[13].write(90)
 
                 
                 print('thumb',int(thumb))
