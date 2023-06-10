@@ -102,85 +102,90 @@ while True:
                 ring_finger=math.hypot(x0-x16,y0-y16)
                 pinky_finger=math.hypot(x0-x20,y0-y20)
                 
-                # #midddle points
-                # mid_thumb_x,mid_thumb_y=int((x4+x17)/2),int((y4+y17)/2)
-                # cv2.circle(img,(mid_thumb_x,mid_thumb_y),10,(255,0,0),cv2.FILLED)
+                #midddle points
+                mid_thumb_x,mid_thumb_y=int((x4+x17)/2),int((y4+y17)/2)
+                cv2.circle(img,(mid_thumb_x,mid_thumb_y),10,(255,0,0),cv2.FILLED)
 
                 
-                # mid_fore_x,mid_fore_y=int((x0+x8)/2),int((y0+y8)/2)
-                # cv2.circle(img,(mid_fore_x,mid_fore_y),10,(255,0,0),cv2.FILLED)
+                mid_fore_x,mid_fore_y=int((x0+x8)/2),int((y0+y8)/2)
+                cv2.circle(img,(mid_fore_x,mid_fore_y),10,(255,0,0),cv2.FILLED)
 
-                # mid_middle_x,mid_middle_y=int((x0+x12)/2),int((y0+y12)/2)
-                # cv2.circle(img,(mid_middle_x,mid_middle_y),10,(255,0,0),cv2.FILLED)
+                mid_middle_x,mid_middle_y=int((x0+x12)/2),int((y0+y12)/2)
+                cv2.circle(img,(mid_middle_x,mid_middle_y),10,(255,0,0),cv2.FILLED)
 
-                # mid_ring_x,mid_ring_y=int((x0+x16)/2),int((y0+y16)/2)
-                # cv2.circle(img,(mid_ring_x,mid_ring_y),10,(255,0,0),cv2.FILLED)
+                mid_ring_x,mid_ring_y=int((x0+x16)/2),int((y0+y16)/2)
+                cv2.circle(img,(mid_ring_x,mid_ring_y),10,(255,0,0),cv2.FILLED)
 
-                # mid_pinky_x,mid_pinky_y=int((x0+x20)/2),int((y0+y20)/2)
-                # cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(255,0,0),cv2.FILLED)
+                mid_pinky_x,mid_pinky_y=int((x0+x20)/2),int((y0+y20)/2)
+                cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(255,0,0),cv2.FILLED)
                 
                 
-                # #for thumb control
-                # if thumb < 50:
-                #     cv2.circle(img,(mid_thumb_x,mid_thumb_y),10,(0,0,0),cv2.FILLED)
-                #     board.digital[9].write(0)
-                # if thumb >50:
-                #     cv2.circle(img,(mid_thumb_x,mid_thumb_y),10,(0,255,0),cv2.FILLED)
-                #     board.digital[9].write(90)
-
-
-                # #for forefinger control
-                # # if fore_finger < 70:
-                # #     cv2.circle(img,(mid_fore_x,mid_fore_y),10,(0,0,0),cv2.FILLED)
-                # #     board.digital[10].write(0)
-                # # if fore_finger > 70:
-                # #     cv2.circle(img,(mid_fore_x,mid_fore_y),10,(0,255,0),cv2.FILLED)
-                # #     board.digital[10].write(90)
-                    
-
-                # #for middlefinger control
-                # if middle_finger < 90:
-                #     cv2.circle(img,(mid_middle_x,mid_middle_y),10,(0,0,0),cv2.FILLED)
-                #     board.digital[11].write(0)
-                
-                # if middle_finger > 90:
-                #     cv2.circle(img,(mid_middle_x,mid_middle_y),10,(0,255,0),cv2.FILLED)
-                #     board.digital[11].write(90)
-                
-                #  #for ring finger control
-                # if ring_finger < 85:
-                #     cv2.circle(img,(mid_ring_x,mid_ring_y),10,(0,0,0),cv2.FILLED)
-                #     board.digital[12].write(0)
-                
-                # if ring_finger > 85:
-                #     cv2.circle(img,(mid_ring_x,mid_ring_y),10,(0,255,0),cv2.FILLED)
-                #     board.digital[12].write(90)
-                
-
-                # if pinky_finger < 80:
-                #     cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(0,0,0),cv2.FILLED)
-                    
-                    
-                
-                #smooth movement 
-                if thumb:
+                #for thumb control
+                if thumb < 50:
+                    cv2.circle(img,(mid_thumb_x,mid_thumb_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[9].write(0)
+                if thumb >50:
+                    cv2.circle(img,(mid_thumb_x,mid_thumb_y),10,(0,255,0),cv2.FILLED)
                     board.digital[9].write(thumb)
-                
-                if fore_finger:
-                    
+
+
+                #for forefinger control
+                if fore_finger < 70:
+                    cv2.circle(img,(mid_fore_x,mid_fore_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[10].write(0)
+                if fore_finger > 70:
+                    cv2.circle(img,(mid_fore_x,mid_fore_y),10,(0,255,0),cv2.FILLED)
                     board.digital[10].write(fore_finger)
                     
-                if middle_finger:
-                    
+
+                #for middlefinger control
+                if middle_finger < 90:
+                    cv2.circle(img,(mid_middle_x,mid_middle_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[11].write(0)
+                
+                if middle_finger > 90:
+                    cv2.circle(img,(mid_middle_x,mid_middle_y),10,(0,255,0),cv2.FILLED)
                     board.digital[11].write(middle_finger)
                 
-                if ring_finger:
-                    
+                 #for ring finger control
+                if ring_finger < 85:
+                    cv2.circle(img,(mid_ring_x,mid_ring_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[12].write(0)
+                
+                if ring_finger > 85:
+                    cv2.circle(img,(mid_ring_x,mid_ring_y),10,(0,255,0),cv2.FILLED)
                     board.digital[12].write(ring_finger)
                 
-                if pinky_finger:
-                    
+
+                if pinky_finger < 80:
+                    cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(0,0,0),cv2.FILLED)
+                    board.digital[13].write(0)
+
+                if pinky_finger > 80:
+                    cv2.circle(img,(mid_pinky_x,mid_pinky_y),10,(0,0,0),cv2.FILLED)
                     board.digital[13].write(pinky_finger)
+                    
+                    
+                
+                # #smooth movement 
+                # if thumb:
+                #     board.digital[9].write(thumb)
+                
+                # if fore_finger:
+                    
+                #     board.digital[10].write(fore_finger)
+                    
+                # if middle_finger:
+                    
+                #     board.digital[11].write(middle_finger)
+                
+                # if ring_finger:
+                    
+                #     board.digital[12].write(ring_finger)
+                
+                # if pinky_finger:
+                    
+                #     board.digital[13].write(pinky_finger)
 
                 
                 print('thumb',int(thumb))
